@@ -1,0 +1,21 @@
+<div class="feedback">
+    <span class="feedback__title"> Отправить</br>
+    заявку </span>
+    <div class="feedback__form">
+        <form action='/request/' method='post'>
+            Имя
+            <input name='name' class="feedback__form__info feedback__form__name" type="text" placeholder="Иванов Иван Николаевич"/>
+            E-mail
+            <input name='email' class="feedback__form__info feedback__form__email" type="text" placeholder="ivanov@mail.ru"/>
+            Телефон
+            <input name='phone' class="feedback__form__info feedback__form__phone" type="text" placeholder="+7 (906) 783-32-44"/>
+            Сообщение
+            <textarea name='message' class="feedback__form__text" placeholder="Текст сообщения..." ></textarea>
+            <input type="submit" value="Отправить" class="feeadback__btn"/>
+            
+            <input type='hidden' name='action' value='request' />
+            <input type='hidden' name='next' value='{{ request_url }}' />
+            {% csrf_token %}
+        </form>
+    </div>
+</div>

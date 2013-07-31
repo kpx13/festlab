@@ -1,177 +1,55 @@
-{% load thumbnail %}
-
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
+    <meta charset="utf-8"/>
     <title></title>
-    <link rel="stylesheet" type="text/css" href="/static/css/style.css">
-    <link rel="stylesheet" type="text/css" href="/static/css/font/garamond/stylesheet.css">
-    <link rel="stylesheet" type="text/css" href="/static/css/font/monotype/font.css">
-    <link href='http://fonts.googleapis.com/css?family=PT+Sans&subset=latin,cyrillic-ext,cyrillic' rel='stylesheet' type='text/css'>
-    <script type="text/javascript" src="/static/js/jquery.mousewheel-3.0.6.pack.js"></script>
-    <script type="text/javascript" src="/static/js/jquery-1.9.0.min.js"></script>
-    <script type="text/javascript" src="/static/js/jquery-1.10.2.min.js"></script>
-    <script type="text/javascript" src="/static/js/script.js"></script>
+    <link type="text/css" rel="stylesheet" href="/static/css/style.css"/>
+    <link type="text/css" rel="stylesheet" href="/static/css/reset.css"/>
+    <script src="/static/js/jquery-1.9.1.min.js"></script>
+    <script src="/static/js/script.js"></script>
 
-    <script type="text/javascript" src="/static/source/jquery.fancybox.js?v=2.1.5"></script>
-    <link rel="stylesheet" type="text/css" href="/static/source/jquery.fancybox.css?v=2.1.5" media="screen" />
-    <link rel="stylesheet" type="text/css" href="/static/source/helpers/jquery.fancybox-buttons.css?v=1.0.5" />
-    <script type="text/javascript" src="/static/source/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
-    <link rel="stylesheet" type="text/css" href="/static/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" />
-    <script type="text/javascript" src="/static/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
-    <script type="text/javascript" src="/static/source/helpers/jquery.fancybox-media.js?v=1.0.6"></script>
-
-    <script type="text/javascript">
-        function countdown(){   /* создадим функцию countdown */
-            var today = new Date().getTime();   /* определим сколько милисекунд прошло с 1970 года до данного момента и запишем в переменную today */
-            var end = new Date({{ settings.year }}, {{ settings.month }} - 1, {{ settings.day }}).getTime();   /* определим сколько милисекунд пройдет c 1970 до указанного в скобках числа (1 января 2013) и запишем в переменную end */
-            var dateX = new Date(end-today);   /* узнаем разницу в милисекундах и запишем в переменную dateX */
-            var perDays = 60*60*1000*24;   /* произведем расчет милисекунд в сутки и запишем в переменную perDays */
-            date_to_write =
-                '<div id="d-timer">' + (Math.round(dateX/perDays)) + '</div>'+
-            '<div id="h-timer">' + dateX.getUTCHours().toString() + '</div>'+
-                    '<div id="m-timer">' + dateX.getMinutes().toString() + '</div>'+
-                    '<div id="s-timer">' + dateX.getSeconds().toString() + '</div>';   /* определяем количество дней путем деления dateX на perDays и округляем это значение. А из остатка вычисляем сколько часов, дней, минут и секунд осталось и приводим в строковые данные */
-            var result = document.getElementById('rezult-timer');   /* создадим переменную result, в которую выберем элемент с id rezult */
-            result.innerHTML = date_to_write;    /* вставляем в div rezult результат вычислений */
-        }
-
-        $(document).ready(function () {
-        countdown();   /* вызываем функцию */
-        setInterval(countdown, 1000);   /* даем интервал вызова функции в 1 секунду */
-        });
-    </script>
 </head>
 <body>
-<div id="header-pattern">
+    <div class="layout">
+    <div class="wrapper">
+        <div class="header">
+            <span class="phone">(4895)<span class="phone__in">33-03-64</span></span>
+                <span class="logo"><span class="logo_mark">F</span>EST | LAB
+                    <span class="logo__in">с нами вам удобнее
+                    </span>
+                </span>
+            <ul class="nav">
+                <a href='/products/'><li class="nav__i {% if 'products' in request_url %}active{% endif %}">Продукты 1С</li></a>
+                <a href='/services/'><li class="nav__i {% if 'services' in request_url %}active{% endif %}">Услуги</li></a>
+                <a href='/about/'><li class="nav__i {% if 'about' in request_url %}active{% endif %}">О компании</li></a>
+                <a href='/contacts/'><li class="nav__i {% if 'contacts' in request_url %}active{% endif %}">Контакты</li></a>
+            </ul>
+            <div class="form_feedback">
+                <span class="form_feedback__title">Оставьте контакты и мы вам позвоним</span>
 
-    <div id="header-pattern-textblock1">
-        {% if messages %}
-            {% for message in messages %}
-                <p class='message'>{{ message|safe }}</p>
-            {% endfor %}
-        {% endif %}
-    <p id="header-pattern-text1">Свадебный фотограф</p>
-    <p id="header-pattern-text2">Свадебная фото и видеосъемка</p>
-    </div>
-    <p id="header-pattern-textblock3">+7 917-517-80-86</br>
-        Ershov.i.a@gmail.com
-    </p>
-    <script type="text/javascript" src="//yandex.st/share/share.js" charset="utf-8"></script>
-    <div class="yashare-auto-init" id="header-pattern-textblock4" data-yashareL10n="ru" data-yashareType="button" data-yashareQuickServices="yaru,vkontakte,facebook,twitter,odnoklassniki"></div>
-    
-    
-    
-    <p id="header-pattern-textblock2">Закажи свадебного фотографа,</br> получи свабедную книгу в ПОДАРОК!!!</p>
-    <div id="counter">
-        <p>до конца акции:</p>
-        <div id="rezult-timer"></div>
-        <div id="counter-info">
-            <p>Дней</p>
-            <p>Часов</p>
-            <p>Минут</p>
-            <p>Секунд</p>
-        </div>
-    </div>
-</div>
-<div style='clear: both'></div>
-<div id="forms-and-photo">
-    <div id="form1">
-        <p class="header-form1">Заполни форму для получения подарка</p>
-        <form id="input-form-all" method='post'>  
-            <p>   Имя {{ reg_form.name }}</p>
-            <p>   Телефон {{ reg_form.phone }}</p>
-            <p>  E-mail {{ reg_form.email }}</p>
-            <input id="submit-form1" type="submit" value="">
-            <input type='hidden' name='action' value='request' />
-            {% csrf_token %}
-        </form>
-        <span id="form1-pattern"> </span>
-    </div>
-</div>
-<div class="text-in-body"><span>Почему клиенты выбирают НАС:</span></div>
-<div id="text-block">
-    <span class="pattern-text-block"></span>
-
-    <p> - Гарантируем высококлассное качество работы</p>
-    <p>  - Индивидуальный подход</p>
-    <p>  - Предлагаем услуги свадебных фотографов высочайшего класса на любой вкус.</p>
-    <p> - Услуги профессионального визажиста и стилиста</p>
-    <p>  - Используем только профессиональное оборудование!</p>
-    <p> - Доступные цены и скидки</p>
-    <p>  - Различные варианты оплаты</p>
-    <p> - Работаем по договору</p>
-
-    <span class="pattern-text-block turn" style="margin-top: 10px;"></span>
-</div>
-
-<div class="text-in-body2"><span>портфолио</span></div>
-
-<div id="portfolio">
-    <span class="portfolio-pattern-left"></span>
-
-    {% for i in photos %}
-        {% thumbnail i.photo "x100" as im %}
-            <a class="fancybox" href="/media/{{ i.photo }}" data-fancybox-group="gallery" title="{{ i.title }}"><img class="portfolio-img" src="{{ im.url }}"></a>
-        {% endthumbnail %}
-    {% endfor %}
-    
-
-    <span class="portfolio-pattern-right turn"></span>
-</div>
-
-<div class="text-in-body2"><span>отзывы</span></div>
-
-<!-- -------------------------ОТЗЫВЫ------------------------ -->
-<div id="feedback">
-    <div id="feedback-left">
-
-        <!--БЛОК ОТЗЫВОВ-->
-    <span id="pattern-feedback-header"></span>
-        
-        {% for r in reviews %}
-            <div class="feedback-block">
-                <div class="feedback-block-image"></div>
-                <div class="feedback-block-text">
-                    <p>{{ r.name }}</p>
-                    <p>{{ r.message }}</p>
+                <div class="contact-form">
+                    <form method='post' action='/call/'>
+                        <input name='name' id="form_name" class="contact-form_text" type="text" value="" placeholder="Ваше имя..."/>
+                        <input name='phone' id="form_phone" class="contact-form_text" type="text" value="" placeholder="Телефон..."/>
+                        <input class="contact-form__btn" type="submit" value="+"/>
+                        <input type='hidden' name='action' value='call' />
+                        <input type='hidden' name='next' value='{{ request_url }}' />
+                        {% csrf_token %}
+                    </form>
                 </div>
             </div>
-        {% endfor %}
-
-    <span id="pattern-feedback-footer" class="turn"></span>
-        <!--БЛОК ОТЗЫВОВ-->
+        </div>
+        
+        <div class="content">
+            {% block content %}
+            {% endblock %}
+        </div>
     </div>
-    <form id="form2" method='post'>
-        <p class="header-form2">Оставить свой отзыв</p>
-        <p>   Имя {{ review_form.name }}</p>
-        <p>   Телефон {{ review_form.phone }}</p>
-        <p>  E-mail {{ review_form.email }}</p>
-        <p>Сообщение<textarea id="form2-textarea" name='message'></textarea></p>
-        <input id="submit-form2" type="submit" value="">
-        <input type='hidden' name='action' value='review' />
-        {% csrf_token %}
-        <span class="form2-pattern"> </span>
-    </form>
-</div>
-<div style='clear: both'></div>
-<!-- -------------------------ОТЗЫВЫ------------------------ -->
-<div class="text-in-body3"><span></span></div>
-
-<div id="footer">
-    <div id="footer-left"></div>
-    <div id="form3">
-        <p class="header-form3">Заказать обратный звонок</p>
-        <form id="input-form3-all" method='post'>
-            <p>   Имя {{ call_form.name }}</p>
-            <p>   Телефон {{ call_form.phone }}</p>
-            <p>  E-mail {{ call_form.email }}</p>
-            <input id="submit-form3" type="submit" value="">
-            <input type='hidden' name='action' value='call' />
-            {% csrf_token %}
-        </form>
-        <span class="form2-pattern" style="margin-top: 10px;"> </span>
     </div>
-</div>
+
 </body>
 </html>
+
+
+

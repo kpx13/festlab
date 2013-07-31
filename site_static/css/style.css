@@ -78,6 +78,13 @@ body{
 	display:inline-block;
 	vertical-align:bottom;
 }
+
+a li.nav__i {
+    text-decoration: none;
+    color: #666;
+    border-right:1px solid #f6f0ec;
+}
+
 .nav__i:first-child{
 	border-left:none;
 }
@@ -594,15 +601,17 @@ body{
 .page_bonus__title{
    color: #5c5146;
     font-size: 38px;
-letter-spacing: -1px;
-    border-bottom: 2px solid;
+    letter-spacing: -1px;
 	font-family:'Miriad Pro', sans-serif;
-    display: inline-block;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
+    line-height: 40px;
+    text-decoration: underline;
+    margin-bottom: 0px;
     padding-top: 15px;
 
 }
+
+.page_bonus__title a {    text-decoration: none;    }
+
 .bonus__img{
     float: right;
 }
@@ -793,4 +802,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4bc00', end
     position: relative;
     top:100px;
     left: 100px;
+}
+
+.hidden
+{
+    display: none;
 }

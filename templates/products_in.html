@@ -1,42 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
-<head>
-    <meta charset="utf-8"/>
-    <title></title>
-    <link type="text/css" rel="stylesheet" href="css/style.css"/>
-    <link type="text/css" rel="stylesheet" href="css/reset.css"/>
+{% extends 'base.html' %}
 
-</head>
-<body>
-<div class="layout">
-    <div class="wrapper">
-        <div class="header">
-            <span class="phone">(4895)<span class="phone__in">33-03-64</span></span>
-				<span class="logo"><span class="logo_mark">F</span>EST | LAB
-					<span class="logo__in">с нами вам удобнее
-					</span>
-				</span>
-            <ul class="nav">
-                <li class="nav__i active">Продукты 1С</li>
-                <li class="nav__i">Услуги</li>
-                <li class="nav__i">О компании</li>
-                <li class="nav__i">Контакты</li>
-            </ul>
-            <div class="form_feedback">
-                <span class="form_feedback__title">Оставьте контакты и мы вам позвоним</span>
-
-                <div class="contact-form">
-                    <form>
-                        <input id="form_name" class="contact-form_text" type="text" value="" placeholder="Ваше имя..."/>
-                        <input id="form_phone" class="contact-form_text" type="text" value="" placeholder="Телефон..."/>
-                        <input class="contact-form__btn" type="button" value="+"/>
-
-                    </form>
-                </div>
-            </div>
-        </div>
-        <div class="content">
+{% block content %}
             <div class="page_products">
                     <span class="page__heading">Продукты 1С<span class="page__heading__in">Мы реализуем самые сложные проекты <br/>
 и внедряем их</span> </span>
@@ -67,7 +31,7 @@
 
                         </div>
                         <div class="product__info__view">
-                            <img class="" src="img/prod_item.jpg" alt=""/>
+                            <img class="" src="/static/img/prod_item.jpg" alt=""/>
 
                             <div class="product__price__wrap">
                                 <div class="product__price__l"><!----></div>
@@ -76,7 +40,7 @@
                         </div>
 
 
-                        <a href="#" class="product__btn product__order-btn">Оформить заказ прямо сейчас</a>
+                        <a href="#request_block" id='send_request' class="product__btn product__order-btn">Оформить заказ прямо сейчас</a>
 
                     </div>
                 </div>
@@ -189,6 +153,17 @@
                     </table>
                     <div class="partners"> Клиенты:
                     </div>
+                    
+                    <div class="page page_feeadback hidden" id='request_block'>
+                        {% include 'request.html' %}
+                    </dib>
+                    
+                    <script>
+                        $('#send_request').click(function(){
+                            if ($('#request_block').hasClass('hidden')) $('#request_block').removeClass('hidden')
+                            else $('#request_block').addClass('hidden')
+                        })
+                    </script>
                 </div>
 
             </div>
@@ -199,12 +174,4 @@
             <span class="footer__counter"></span>
             Copirayting 2013  FEST | LAB
         </div>
-
-    </div>
-</div>
-
-</body>
-</html>
-
-
-
+{% endblock %}

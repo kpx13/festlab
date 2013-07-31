@@ -19,7 +19,15 @@ urlpatterns = patterns('',
     url(r'^settings/', include('livesettings.urls')),
     url(r'^ckeditor/', include('ckeditor.urls')),
 
-    url(r'^$', views.page),
-    url(r'^(?P<page_name>[\w-]+)/$' , views.other_page),
+    url(r'^$', views.home),
+    url(r'^call/$', views.call),
+    url(r'^request/$', views.request_f),
+    url(r'^bonuses/$', views.bonuses),
+    url(r'^contacts/$', views.contacts),
+    url(r'^about/$', views.about),
+    url(r'^products/$', views.products),
+    url(r'^products/(?P<page_name>[\w-]+)/$', views.products_in),
+    url(r'^services/$', views.services),
+    url(r'^(?P<page_name>[\w-]+)/$' , views.page),
     
 )

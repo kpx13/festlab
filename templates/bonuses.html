@@ -1,76 +1,19 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
-<head>
-    <meta charset="utf-8"/>
-    <title></title>
-    <link type="text/css" rel="stylesheet" href="css/style.css"/>
-    <link type="text/css" rel="stylesheet" href="css/reset.css"/>
-    <script src="jquery-1.9.1.min.js"></script>
-    <script src="script.js"></script>
+{% extends 'base.html' %}
 
-</head>
-<body>
-<div class="layout">
-    <div class="wrapper">
-        <div class="header">
-            <span class="phone">(4895)<span class="phone__in">33-03-64</span></span>
-				<span class="logo">Fest | lab
-					<span class="logo__in">с нами вам удобнее
-					</span>
-				</span>
-            <ul class="nav">
-                <li class="nav__i active">Продукты 1С</li>
-                <li class="nav__i">Услуги</li>
-                <li class="nav__i">О компании</li>
-                <li class="nav__i">Контакты</li>
-            </ul>
-            <div class="form_feedback">
-                <span class="form_feedback__title">Оставьте контакты и мы вам позвоним</span>
-
-                <div class="contact-form">
-                    <form>
-                        <input id="form_name" class="contact-form_text" type="text" value="" placeholder="Ваше имя..."/>
-                        <input id="form_phone" class="contact-form_text" type="text" value="" placeholder="Телефон..."/>
-                        <input class="contact-form__btn" type="button" value="+"/>
-
-                    </form>
-                </div>
-            </div>
-        </div>
-        <div class="content">
+{% block content %}
             <div class="page_bonus page">
                     <span class="page__heading">Акции и скидки<span class="page__heading__in">Мы рады дарить порарки своим клиентам <br/>
 и радовать приятными скидками</span> </span>
-                <div class="page_bonus__i">
-                    <img src="img/bonus_item.jpg" class="bonus__img">
-                    <span class="page_bonus__title">Подключение к 1С Отчетность </span>
-                    <p class="page_bonus__text">Совместное решение фирмы "1С" и "ФестЛаб", предназначенное для отправки электронной отчетности в ФНС, ФСС, ПФР, ФСРАР и Росстат напрямую из "1С", без выгрузки и импорта в стороннюю программу, так как функционал встроен в типовые конфигурации 1С:Предприятия 8.</p>
-                    <a href="#" class="product__btn product__btn-send">Отправить заявку на подключение</a>
-                </div>
-                <div class="page_bonus__i">
-                    <img src="img/bonus_item.jpg" class="bonus__img">
-                    <span class="page_bonus__title">Подключение к 1С Отчетность </span>
-                    <p class="page_bonus__text">Совместное решение фирмы "1С" и "ФестЛаб", предназначенное для отправки электронной отчетности в ФНС, ФСС, ПФР, ФСРАР и Росстат напрямую из "1С", без выгрузки и импорта в стороннюю программу, так как функционал встроен в типовые конфигурации 1С:Предприятия 8.</p>
-                    <a href="#" class="product__btn product__btn-send">Отправить заявку на подключение</a>
-                </div>
-                <div class="page_bonus__i">
-                    <img src="img/bonus_item.jpg" class="bonus__img">
-                    <span class="page_bonus__title">Подключение к 1С Отчетность </span>
-                    <p class="page_bonus__text">Совместное решение фирмы "1С" и "ФестЛаб", предназначенное для отправки электронной отчетности в ФНС, ФСС, ПФР, ФСРАР и Росстат напрямую из "1С", без выгрузки и импорта в стороннюю программу, так как функционал встроен в типовые конфигурации 1С:Предприятия 8.</p>
-                    <a href="#" class="product__btn product__btn-send">Отправить заявку на подключение</a>
-                </div>
-                <div class="page-nav">
-                    <span class="page-nav__i page-nav__l page-nav__i_first">предыдущая</span>
-                    <span class="page-nav__i">1</span>
-                    <span class="page-nav__i">2 </span>
-                    <span class="page-nav__i">3</span>
-                    <span class="page-nav__i">....</span>
-                    <span class="page-nav__i">4</span>
-                    <span class="page-nav__i">5</span>
-                    <span class="page-nav__i">6</span>
-                    <span class="page-nav__i page-nav__l page-nav__i_last">последняя</span>
-                </div>
+                
+                {% for b in bonuses %}
+                    <div class="page_bonus__i">
+                        <img src="/media/{{ b.image }}" class="bonus__img">
+                        <span class="page_bonus__title">{{ b.title }}</span>
+                        <p class="page_bonus__text">{{ b.description }}</p>
+                        <a href="/bonuses/{{ b.slug }}" class="product__btn product__btn-send">Подробнее</a>
+                    </div>
+                {% endfor %}
+                               
 
             </div>
 
@@ -79,11 +22,4 @@
                 Copirayting 2013 fest | lab
             </div>
 
-        </div>
-    </div>
-
-</body>
-</html>
-
-
-
+{% endblock %}

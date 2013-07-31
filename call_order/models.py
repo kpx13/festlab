@@ -5,7 +5,6 @@ from pytils import dt
 class Request(models.Model):
     name  = models.CharField(u'имя', blank=True, max_length=255)
     phone  = models.CharField(u'телефон', blank=True, max_length=255)
-    email  = models.CharField(u'email', blank=True, max_length=255)
     request_date = models.DateTimeField(u'дата заявки', auto_now_add=True)
                     
     class Meta:
