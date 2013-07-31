@@ -32,7 +32,6 @@ class CustomIndexDashboard(Dashboard):
             deletable=False,
             collapsible=False,
             children=[
-                [u'Менеджер файлов', '/admin/filebrowser/browse/'],
                 [u'Настройки сайта', '/settings/MyApp'],
                 [_('Return to site'), '/'],
                 [_('Change password'),
@@ -44,21 +43,32 @@ class CustomIndexDashboard(Dashboard):
         
         self.children.append(
             modules.ModelList(
-                title = u'Фотографии',
+                title = u'Страницы. Текстовая инфа',
                 models=(
-                    'photos.models.Photo',
+                    'pages.models.Page',
                 ),
             )
         )
         
         self.children.append(
             modules.ModelList(
-                title = u'Заявки на подарки',
+                title = u'Продукты',
                 models=(
-                    'register.models.Request',
+                    'products.models.Product',
                 ),
             )
         )
+
+        
+        self.children.append(
+            modules.ModelList(
+                title = u'Заявки',
+                models=(
+                    'request.models.Request',
+                ),
+            )
+        )
+
         
         self.children.append(
             modules.ModelList(
@@ -71,14 +81,21 @@ class CustomIndexDashboard(Dashboard):
         
         self.children.append(
             modules.ModelList(
-                title = u'Отзывы',
+                title = u'Бонусы',
                 models=(
-                    'review.models.Review',
+                    'bonuses.models.Article',
                 ),
             )
         )
-
-
+        
+        self.children.append(
+            modules.ModelList(
+                title = u'Слайдшоу',
+                models=(
+                    'slideshow.models.Slider',
+                ),
+            )
+        )
         # append a recent actions module
         self.children.append(modules.RecentActions(_('Recent Actions'), 5))
 
