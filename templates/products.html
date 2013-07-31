@@ -5,64 +5,21 @@
             <div class="page_products">
                     <span class="page__heading">Продукты 1С<span class="page__heading__in">Мы реализуем самые сложные проекты <br/>
 и внедряем их</span> </span>
+                
+                
+                {% for p in products %}
+                    <div class="product__preview">
+                        <span class="product__title">{{ p.title }}</span>
 
-                <div class="product__preview">
-                    <span class="product__title">Ведение бухгалтерского учета</span>
+                        <div class="product__in">
+                            <img class="product__img" src="/media/{{ p.image }}" alt=""/>
+                            <div class='free'>{{ p.description|safe }}</div>
+                            <a href="/products/{{ p.slug }}/" class="product__btn product__btn-compare">Перейти к сравнению</a>
 
-                    <div class="product__in">
-                        <img class="product__img" src="/static/img/prod1.jpg" alt=""/>
-                        <ul class="product__list">
-                            <li class="product__list__i">1С Бухгалтерия:</li>
-                            <ul class="product__list__in">
-                                <li class="product__list__in__i">Базовая</li>
-                                <li class="product__list__in__i">Проф</li>
-                                <li class="product__list__in__i">Корп</li>
-                            </ul>
-                            <li class="product__list__i">1С Налогоплательщик</li>
-                            <li class="product__list__i">1С Предприниматель</li>
-                            <li class="product__list__i">1С Упрощенка</li>
-                            <li class="product__list__i">1С Платежные документы</li>
-                        </ul>
-                        <a href="#" class="product__btn product__btn-compare">Перейти к сравнению</a>
-
+                        </div>
                     </div>
-                </div>
-                <div class="product__preview">
-                    <span class="product__title">Автоматизация торговой деятельности</span>
+                {% endfor %}
 
-                    <div class="product__in">
-                        <img class="product__img" src="/static/img/prod2.jpg" alt=""/>
-                        <ul class="product__list">
-                            <li class="product__list__i">1С Управление Торговлей</li>
-                            <li class="product__list__i">1С Розница</li>
-                            <li class="product__list__i">1С Управление небольшой фирмой</li>
-                        </ul>
-                        <a href="#" class="product__btn product__btn-compare">Перейти к сравнению</a>
-                    </div>
-                </div>
-                <div class="product__preview">
-                    <span class="product__title">Комплексная автоматизация деятельности <span class="product__title__in">(Торговля+производство+бухгалтерия+кадры)</span></span>
-
-                    <div class="product__in">
-                        <img class="product__img" src="/static/img/prod3.jpg" alt=""/>
-                        <ul class="product__list">
-                            <li class="product__list__i">1С Комплексная автоматизация</li>
-                            <li class="product__list__i">1С Управление производственным предприятием</li>
-                        </ul>
-                        <a href="#" class="product__btn product__btn-compare">Перейти к сравнению</a>
-                    </div>
-                </div>
-                <div class="product__preview">
-                    <span class="product__title">Ведение кадрового учета и расчет зарплаты</span>
-
-                    <div class="product__in">
-                        <img class="product__img product__img__center" src="/static/img/prod4.jpg" alt=""/>
-                        <ul class="product__list">
-                            <li class="product__list__i">1С Зарплата и Управление персоналом</li>
-                        </ul>
-                        <a href="#" class="product__btn product__btn-compare">Перейти к сравнению</a>
-                    </div>
-                </div>
             </div>
 
             <div class="footer">

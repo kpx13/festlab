@@ -9,6 +9,7 @@ from django.template import RequestContext
 from call_order.forms import RequestForm 
 from request.forms import RegisterForm 
 from bonuses.models import Article
+from products.models import Product
 from pages.models import Page
 from slideshow.models import Slider
 from livesettings import config_value
@@ -82,6 +83,8 @@ def page(request, page_name):
 
 def home(request):
     c = get_common_context(request)
+    c.update(Page.get_by_slug('home'))
+    c['slideshow'] = Slider.objects.all()
     return render_to_response('home.html', c, context_instance=RequestContext(request))
 
 def call(request):
@@ -114,7 +117,7 @@ def bonuses(request):
 
 def bonuses_in(request, page_name):
     c = get_common_context(request)
-    c['bonuses'] = Article.get_by_slug(page_name)
+    c['bonus'] = Article.get_by_slug(page_name)
     return render_to_response('bonuses_in.html', c, context_instance=RequestContext(request))
 
 
@@ -124,17 +127,21 @@ def contacts(request):
 
 def about(request):
     c = get_common_context(request)
+    c.update(Page.get_by_slug('about'))
     return render_to_response('about.html', c, context_instance=RequestContext(request))
 
 def products(request):
     c = get_common_context(request)
+    c['products'] = Product.objects.all()
     return render_to_response('products.html', c, context_instance=RequestContext(request))
 
 def products_in(request, page_name):
     c = get_common_context(request)
+    c['product'] = Product.get_by_slug(page_name)
     return render_to_response('products_in.html', c, context_instance=RequestContext(request))    
 
 def services(request):
     c = get_common_context(request)
+    c.update(Page.get_by_slug('services'))
     return render_to_response('services.html', c, context_instance=RequestContext(request))
     

@@ -111,6 +111,7 @@ INSTALLED_APPS = (
     'bonuses',
     'call_order',
     'pages',
+    'products',
     'request',
     'slideshow',
 )
