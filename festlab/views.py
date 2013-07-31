@@ -94,7 +94,7 @@ def call(request):
         if call_form.is_valid():
             call_form.save()
             call_form = RequestForm()
-            messages.success(request, u'Спасибо! В ближайшее время мы Вам перезвоним.')
+            #messages.success(request, u'Спасибо! В ближайшее время мы Вам перезвоним.')
             return HttpResponseRedirect(request.POST['next'])
     raise Http404() 
 
@@ -105,7 +105,7 @@ def request_f(request):
         if call_form.is_valid():
             call_form.save()
             call_form = RegisterForm()
-            messages.success(request, u'Спасибо! В ближайшее время мы Вам перезвоним.')
+            #messages.success(request, u'Спасибо! В ближайшее время мы Вам перезвоним.')
             return HttpResponseRedirect(request.POST['next'])
     raise Http404() 
     
