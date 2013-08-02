@@ -8,7 +8,7 @@
                         {% for s in slideshow %}
                         
                         <li class="slider__i">
-                            <img class="sider__img" src="/static/img/report.jpg" alt=""/>
+                            <img class="sider__img" src="/media/{{ s.image }}" alt=""/>
                             <span class="sider__title">{{ s.title }}</span>
                             <div class='free'>{{ s.content|safe }}</div>
                         </li>
