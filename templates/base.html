@@ -14,10 +14,11 @@
     <div class="layout">
     <div class="wrapper">
         <div class="header">
-            <span class="phone">(4895)<span class="phone__in">33-03-64</span></span>
-                <span class="logo"><a href='/'><span class="logo_mark">F</span>EST | LAB</a>
+            <span class="phone">(4895)<span class="phone__in"> 33-03-64</span></span>
+                <a href="/" class="logo">
+                    <span class="logo_mark">F</span>EST | LAB
                     <span class="logo__in">с нами вам удобнее
-                    </span>
+                </a>
                 </span>
             <ul class="nav">
                 <a href='/products/'><li class="nav__i {% if 'products' in request_url %}active{% endif %}">Продукты 1С</li></a>
@@ -32,7 +33,7 @@
                     <form method='post' action='/call/'>
                         <input name='name' id="form_name" class="contact-form_text" type="text" value="" placeholder="Ваше имя..."/>
                         <input name='phone' id="form_phone" class="contact-form_text" type="text" value="" placeholder="Телефон..."/>
-                        <input class="contact-form__btn" type="submit" value="+"/>
+                        <input class="contact-form__btn" type="submit" value=""/>
                         <input type='hidden' name='action' value='call' />
                         <input type='hidden' name='next' value='{{ request_url }}' />
                         {% csrf_token %}
