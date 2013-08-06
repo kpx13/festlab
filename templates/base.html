@@ -30,10 +30,10 @@
                 <span class="form_feedback__title">Оставьте контакты и мы вам позвоним</span>
 
                 <div class="contact-form">
-                    <form method='post' action='/call/'>
-                        <input name='name' id="form_name" class="contact-form_text" type="text" value="" placeholder="Ваше имя..."/>
-                        <input name='phone' id="form_phone" class="contact-form_text" type="text" value="" placeholder="Телефон..."/>
-                        <input class="contact-form__btn" type="submit" value=""/>
+                    <form method='post' action='/call/' class='cf'>
+                        <input name='name' id="form_name" class="contact-form_text call__form__name cfield" type="text" value="" placeholder="Ваше имя..."/>
+                        <input name='phone' id="form_phone" class="contact-form_text call__form__phone cfield2" type="text" value="" placeholder="Телефон..."/>
+                        <input class="contact-form__btn send_btn disabled" type="submit" value=""/>
                         <input type='hidden' name='action' value='call' />
                         <input type='hidden' name='next' value='{{ request_url }}' />
                         {% csrf_token %}

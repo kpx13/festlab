@@ -45,10 +45,11 @@
             });
 
       $('.rf').each(function(){
-
+          
           // Объявляем переменные (форма и кнопка отправки)
           var form = $(this),
-              btn = form.find('.feedback__btn');
+              btn = form.find('.send_btn');
+        
           var email = $(".feedback__form__email").val();
 
           // Добавляем каждому проверяемому полю, указание что поле пустое
@@ -122,6 +123,123 @@
               // Через полсекунды удаляем подсветку
             //  setTimeout(function(){
                  // form.find('.feedback__form__info').css({'background-color':'#e9fcec'});
+             // },500);
+          }
+
+
+          // Проверка в режиме реального времени
+          setInterval(function(){
+
+              // Запускаем функцию проверки полей на заполненность
+              checkInput();
+              checkInput2();
+
+              // Считаем к-во незаполненных полей
+              var sizeEmpty = form.find('.empty_field').size();
+              // Вешаем условие-тригер на кнопку отправки формы
+              if(sizeEmpty > 0){
+                  if(btn.hasClass('disabled')){
+                      return false
+                  } else {
+                      btn.addClass('disabled')
+                  }
+              } else {
+                  btn.removeClass('disabled')
+              }
+              lightEmpty();
+          },500);
+
+
+
+
+
+      function isValidEmailAddress(emailAddress) {
+
+          var pattern = /^[a-z0-9_-]+@[a-z0-9-]+\.[a-z]{2,6}$/i;
+
+          return pattern.test(emailAddress);
+      }
+          // Событие клика по кнопке отправить
+          btn.click(function(){
+
+              if($(this).hasClass('disabled')){
+                  // подсвечиваем незаполненные поля и форму не отправляем, если есть незаполненные поля
+                  lightEmpty();
+                  return false
+              } else {
+                  // Все хорошо, все заполнено, отправляем форму
+
+                  form.submit();
+              }
+          });
+      });
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+//       Для звонка
+      
+      $('.cf').each(function(){
+          
+          // Объявляем переменные (форма и кнопка отправки)
+          var form = $(this),
+              btn = form.find('.send_btn');
+
+          // Добавляем каждому проверяемому полю, указание что поле пустое
+          form.find('.cfield').addClass('empty_field');
+          form.find('.cfield2').addClass('empty_field');
+
+          // Функция проверки полей формы
+          function checkInput(){
+
+              form.find('.cfield').each(function(){
+                  if($(this).val() != ''){
+
+                      // Если поле не пустое удаляем класс-указание
+                      $(this).removeClass('empty_field');
+
+                  } else {
+                      // Если поле пустое добавляем класс-указание
+                      $(this).addClass('empty_field');
+                  }
+
+              })
+          }
+
+            function checkInput2(){
+              form.find('.cfield2').each(function(){
+                  if($(this).val() != ''){
+
+                      // Если поле не пустое удаляем класс-указание
+                      $(this).removeClass('empty_field');
+
+                  } else {
+                      // Если поле пустое добавляем класс-указание
+                      $(this).addClass('empty_field');
+                  }
+
+              })
+          }
+
+
+          // Функция подсветки незаполненных полей
+          function lightEmpty(){
+
+              form.find('.contact-form_text').css({'background-color':'#e9fcec'});
+              form.find('.empty_field').css({'background-color':'#fed9d9'});
+
+
+
+              // Через полсекунды удаляем подсветку
+            //  setTimeout(function(){
+                 // form.find('.call__form__info').css({'background-color':'#e9fcec'});
              // },500);
           }
 

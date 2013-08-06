@@ -9,12 +9,13 @@
             <input name='phone' class="feedback__form__info feedback__form__phone rfield2" type="text" placeholder="+7 (906) 783-32-44"/>
             Сообщение
             <textarea name='message' class="feedback__form__text" placeholder="Текст сообщения..." ></textarea>
-            <input type="submit" value="Отправить" class="feedback__btn disabled"/>
+            <input type="submit" value="Отправить" class="feedback__btn send_btn disabled"/>
             
             <input type='hidden' name='action' value='request' />
             <input type='hidden' name='next' value='{{ request_url }}' />
             {% csrf_token %}
         </form>
     </div>
-    <span class="feedback__title"> Отправить</br>заявку </span>
+    <span class="feedback__title"> Отправить</br>
+заявку </span>
 </div>
