@@ -8,7 +8,8 @@
                         {% for s in slideshow %}
                         
                         <li class="slider__i">
-                            <img class="sider__img" src="/media/{{ s.image }}" alt=""/>
+                            <img class="sider__img" src="/media/{{ s.image }}" alt=""/>
+
                             <span class="sider__title">{{ s.title }}</span>
                             <div class='free'>{{ s.content|safe }}</div>
                         </li>
@@ -36,10 +37,7 @@
                 </div>
             </div>
 
-            <div class="footer">
-                <span class="footer__counter"></span>
-                Copirayting 2013 FEST | LAB
-            </div>
+            {% include 'footer.html' %}
 
 {% endblock %}
 
