@@ -2,56 +2,59 @@
 
 {% block content %}
             <div class="page_products">
-                    <span class="page__heading">Продукты 1С<span class="page__heading__in">Мы реализуем самые сложные проекты <br/>
+                <span class="page__heading">Продукты 1С<span class="page__heading__in">Мы реализуем самые сложные проекты <br/>
 и внедряем их</span> </span>
 
                 <div class="product__i">
                     <span class="product__title">{{ product.title }}</span>
 
                     <div class="product__info">
+                    
                         
-
-
-                    <div class="product__info__in" >
-						<span class="product__info__title"></span>
-                           <div class='free'>{{ product.description|safe }}</div>
+                        
+                        <div class="product__info__in" >
+                            <span class="product__info__title"></span>
+                            <div class='free'>{{ product.description|safe }}</div>
 
                         </div>
+                        
                         <div class="product__info__view">
-                        <img class="" src="/media/{{ product.image }}" alt=""/>
+                            <img class="" src="/media/{{ product.image }}" alt=""/>
 
                             <div class="product__price__wrap">
-                                <div class="product__price__l"><!----></div>
+                                <div class="product__price__l"></div>
                                 <span class="product__price">{{ product.price }}<span class="product__price__in">руб.</span> </span>
                             </div>
+                            
                         </div>
 
+                    </div>
+                    <div class='clear'></div>
+                    <a href="#request_block" id='send_request' class="product__btn product__order-btn" style='float: right; margin-top: -10px; margin-bottom: 20px'>
+                        Оформить заказ прямо сейчас</a>
+                    <div class='clear'></div>
+                    
+                    <div class="product__about">
+                        <div class='free'>{{ product.content|safe }}</div>
+                        
+                        <div class="partners"> Клиенты:
+                        </div>
+                        
+                        <div class="page page_feedback hidden" id='request_block'>
+                            {% include 'request.html' %}
+                        </div>
+                        
+                        <script>
+                            $('#send_request').click(function(){
+                                if ($('#request_block').hasClass('hidden')) $('#request_block').removeClass('hidden')
+                                else $('#request_block').addClass('hidden')
+                            })
+                        </script>
+                    </div>
 
-                        <a href="#request_block" id='send_request' class="product__btn product__order-btn">Оформить заказ прямо сейчас</a>
-
-                    </div>
-                </div>
-                <div class="product__about">
-                    <div class='free'>{{ product.content|safe }}</div>
-                    
-                    <div class="partners"> Клиенты:
-                    </div>
-                    
-                    <div class="page page_feedback hidden" id='request_block'>
-                        {% include 'request.html' %}
-                    </div>
-                    
-                    <script>
-                        $('#send_request').click(function(){
-                            if ($('#request_block').hasClass('hidden')) $('#request_block').removeClass('hidden')
-                            else $('#request_block').addClass('hidden')
-                        })
-                    </script>
                 </div>
 
             </div>
-
-        </div>
 
         {% include 'footer.html' %}
 {% endblock %}

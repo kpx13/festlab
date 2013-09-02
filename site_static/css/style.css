@@ -535,17 +535,20 @@ a li.nav__i {
     box-shadow: inset 0 1px 2px #f8d300;
 }
 .product__order-btn{
-    margin-left: 245px;
+    margin-right: 45px;
 	margin-top: 30px;
 }
 .product__list__i{
     margin-bottom: 10px;
-    text-decoration: underline;
 }
+
+.product__list__i a{
+    color: #b0a090;
+}
+
 .product__list__in__i{
     position: relative;
     padding: 0 0 10px 20px;
-    text-decoration: underline;
 
 }
 .product__list__in{
@@ -585,6 +588,7 @@ a li.nav__i {
  font-size: 16px;
     display: inline-block;
     vertical-align: top;
+    float: left;
 	
 }
 .product__info__text{
@@ -605,12 +609,14 @@ a li.nav__i {
 .product__info__view{
     display: inline-block;
     vertical-align: top;
-    margin-left: 50px;
-	padding-top:25px;
+    margin-right: 70px;
+	padding-top:5px;
+    padding-right: 0px;
+    float: right;
 }
   .product__info__list{
       margin-bottom: 25px;
-      width: 410px;
+      
   }
   .product__price__l{
       width: 90px;
@@ -630,12 +636,12 @@ a li.nav__i {
 
   }
   .product__price__wrap{
-     width: 90px;
+    width: 90px;
 	height: 90px;
 	vertical-align: middle;
 	position: relative;
 	margin-top: -45px;
-	left: 130px;
+	right: -100px;
 	text-align: center;
 	padding-top: 34px;
       -webkit-box-sizing: border-box;
@@ -967,3 +973,5 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4bc00', end
     font-family: 'Open Sans', sans-serif;
     font-size: 12px;
 }
+
+.clear {clear: both;}

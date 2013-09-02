@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+            <div class="page_products">
+                    <span class="page__heading">Продукты 1С<span class="page__heading__in">Мы реализуем самые сложные проекты <br/> и внедряем их</span> </span>
+                    <span class="product__title">{{ title }}</span>
+                    <div class='free' style='padding: 30px; text-align: justify'>{{ content|safe }}</div>
+            </div>
+            
+            {% include 'footer.html' %}
+
+{% endblock %}

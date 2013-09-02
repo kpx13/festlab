@@ -67,6 +67,7 @@ def page(request):
 """
 def page(request, page_name):
     c = get_common_context(request)
+    
     try:
         c.update(Page.get_by_slug(page_name))
         return render_to_response('page.html', c, context_instance=RequestContext(request))
