@@ -400,7 +400,7 @@ a li.nav__i {
 	height:88px;
 	padding-left:55px;
 	color:#fff;
-	font-size:20px;
+	font-size:16px;
 		text-shadow: 1px 1px #b89278;
 		font-family: 'Myriad Pro', sans-serif;
 		
@@ -951,6 +951,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4bc00', end
     cursor: default !important;
 
 }
+
+.send_btn { }
 
 
 .feedback__title{
