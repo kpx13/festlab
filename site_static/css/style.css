@@ -243,8 +243,8 @@ a li.nav__i {
 	-moz-box-sizing:border-box;
 }
 .contact-form__btn{
-	width:30px;
-	height:30px;
+	width:31px;
+	height:31px;
 
     background: url(../img/btn.jpg) no-repeat 0 0;
 
@@ -955,8 +955,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4bc00', end
 }
 
 .send_btn.disabled:hover {
-    cursor: default !important;
-
 }
 
 .send_btn { }
