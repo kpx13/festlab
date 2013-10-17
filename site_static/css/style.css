@@ -103,7 +103,13 @@ daZlWShpwfQBZsjZgt0b0wPbC2YPujNmQHo/6faYDBldsD2hNkFO3dmCHYTZgSGV2YPjLwfcwrkG99ia
 }
   .header{
       margin-bottom: 35px;
+      width: 980px;
   }
+  
+.boxes_wrap
+{
+    width: 980px;
+}
 
 .layout{
 	background: url(../img/layout.png) repeat 0 0;
