@@ -103,12 +103,12 @@ daZlWShpwfQBZsjZgt0b0wPbC2YPujNmQHo/6faYDBldsD2hNkFO3dmCHYTZgSGV2YPjLwfcwrkG99ia
 }
   .header{
       margin-bottom: 35px;
-      width: 980px;
+      width: 930px;
   }
   
 .boxes_wrap
 {
-    width: 980px;
+    width: 930px;
 }
 
 .layout{
@@ -155,7 +155,7 @@ daZlWShpwfQBZsjZgt0b0wPbC2YPujNmQHo/6faYDBldsD2hNkFO3dmCHYTZgSGV2YPjLwfcwrkG99ia
 	text-shadow: 1px 1px #b89278;
 }
 .phone__in{
-	font-size:42px;
+	font-size:30px;
 }
 .nav{
 	line-height:44px;
