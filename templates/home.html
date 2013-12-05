@@ -8,14 +8,14 @@
                     <ul class="slider">
 
                         {% for s in slideshow %}
-                        
+
                         <li class="slider__i">
-                            <img class="sider__img" src="/media/{{ s.image }}" alt=""/>
+                            <img class="sider__img" src="/media/{{ s.image }}" alt="" width="{{ s.image.width }}" height="{{ s.image.height }}"/>
 
                             <span class="sider__title">{{ s.title }}</span>
                             <div class='free'>{{ s.content|safe }}</div>
                         </li>
-                        
+
                         {% endfor %}
                     </ul>
                     <div class="slider__nav">

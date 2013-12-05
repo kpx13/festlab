@@ -1,7 +1,9 @@
-  
+var can_slide = true;
+
   $(function () {
 
           var pattern = /^[a-z0-9_-]+@[a-z0-9-]+\.[a-z]{2,6}$/i;
+
 
             $(".slider__nav__l:first").addClass("_active");
 
@@ -12,16 +14,26 @@
 
             $(".slider").css({'width': imageReelWidth});
 
+            $(".slider__i").hover(
+                function() {
+                    can_slide = false;
+                }, function() {
+                    can_slide = true;
+                }
+            );
+
             rotate = function () {
                 var triggerID = $active.index() ;
                 var image_reelPosition = triggerID * imageWidth;
 
-                $(".slider").animate({
-                    left: -image_reelPosition
-                }, 500);
+                if (can_slide === true) {
+                    $(".slider").animate({
+                        left: -image_reelPosition
+                    }, 500);
 
-                $(".slider__nav__l").removeClass('_active');
-                $active.addClass('_active');
+                    $(".slider__nav__l").removeClass('_active');
+                    $active.addClass('_active');
+                }
             };
 
             rotateSwitch = function () {
@@ -45,11 +57,11 @@
             });
 
       $('.rf').each(function(){
-          
+
           // Объявляем переменные (форма и кнопка отправки)
           var form = $(this),
               btn = form.find('.send_btn');
-        
+
           var email = $(".feedback__form__email").val();
 
           // Добавляем каждому проверяемому полю, указание что поле пустое
@@ -169,25 +181,59 @@
               } else {
                   // Все хорошо, все заполнено, отправляем форму
 
-                  form.submit();
+                  //form.submit();
               }
           });
       });
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
+
+
+        function contact_form_handler(responseText, statusText, xhr, $form)  {
+            if (responseText.result) {
+                toastr.info('Спасибо, наши специалисты свяжутся с вами в ближайшее время.');
+                //window.location.href = responseText.redirect;
+            } else {
+            for (err in responseText.errors) {
+                toastr.error(responseText.errors[err]);
+                }
+            }
+        };
+
+        var contact_form_options = {
+            url:        "/ajax_call/",
+            success:    contact_form_handler
+        };
+
+        // pass options to ajaxForm
+        $('#contact_form').ajaxForm(contact_form_options);
+
+
+        function request_form_handler(responseText, statusText, xhr, $form)  {
+            if (responseText.result) {
+                toastr.info('Спасибо за заявку, наши специалисты свяжутся с вами в ближайшее время.');
+                //window.location.href = responseText.redirect;
+            } else {
+            for (err in responseText.errors) {
+                toastr.error(responseText.errors[err]);
+                }
+            }
+        };
+
+        var request_form_options = {
+            url:        "/ajax_request/",
+            success:    request_form_handler
+        };
+
+        // pass options to ajaxForm
+        $('#request_form').ajaxForm(request_form_options);
+
+
+
+
+
 //       Для звонка
-      
+
       $('.cf').each(function(){
-          
+
           // Объявляем переменные (форма и кнопка отправки)
           var form = $(this),
               btn = form.find('.send_btn');
@@ -286,11 +332,10 @@
               } else {
                   // Все хорошо, все заполнено, отправляем форму
 
-                  form.submit();
+                  //form.submit();
               }
           });
       });
 
     });
 
- 

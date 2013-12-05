@@ -6,9 +6,9 @@
             <div class="page_bonus page">
                     <span class="page__heading">Акции и скидки<span class="page__heading__in">Мы рады дарить порарки своим клиентам <br/>
 и радовать приятными скидками</span> </span>
-                
+
                     <div class="page_bonus__i">
-                        <img src="/media/{{ bonus.image }}" class="bonus__img">
+                        <img src="/media/{{ bonus.image }}" class="bonus__img"  width="{{ bonus.image.width }}" height="{{ bonus.image.height }}">
                         <span class="page_bonus__title">{{ bonus.title }}</span>
                         <p class="page_bonus__text">{{ bonus.description }}</p>
 
@@ -16,7 +16,7 @@
                         <a href="/bonuses/" class="product__btn product__btn-send">Назад</a>
                     </div>
             </div>
-            
+
             <div class="page page_feedback" id='request_block'>
                 {% include 'request.html' %}
             </div>

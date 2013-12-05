@@ -11,23 +11,23 @@
                     <span class="product__title">{{ product.title }}</span>
 
                     <div class="product__info">
-                    
-                        
-                        
+
+
+
                         <div class="product__info__in" >
                             <span class="product__info__title"></span>
                             <div class='free'>{{ product.description|safe }}</div>
 
                         </div>
-                        
+
                         <div class="product__info__view">
-                            <img class="" src="/media/{{ product.image }}" alt=""/>
+                            <img class="" src="/media/{{ product.image }}" alt="" width="{{ product.image.width }}" height="{{ product.image.height }}"/>
 
                             <div class="product__price__wrap">
                                 <div class="product__price__l"></div>
                                 <span class="product__price">{{ product.price }}<span class="product__price__in">руб.</span> </span>
                             </div>
-                            
+
                         </div>
 
                     </div>
@@ -35,17 +35,17 @@
                     <a href="#request_block" id='send_request' class="product__btn product__order-btn" style='float: right; margin-top: -10px; margin-bottom: 20px'>
                         Оформить заказ прямо сейчас</a>
                     <div class='clear'></div>
-                    
+
                     <div class="product__about">
                         <div class='free'>{{ product.content|safe }}</div>
-                        
+
                         <div class="partners"> Клиенты:
                         </div>
-                        
+
                         <div class="page page_feedback hidden" id='request_block'>
                             {% include 'request.html' %}
                         </div>
-                        
+
                         <script>
                             $('#send_request').click(function(){
                                 if ($('#request_block').hasClass('hidden')) $('#request_block').removeClass('hidden')

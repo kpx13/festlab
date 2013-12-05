@@ -1,6 +1,6 @@
 <div class="feedback">
     <div class="feedback__form">
-        <form action='/request/' method='post' class="rf">
+        <form method='post' class="rf" id="request_form">
             Имя
             <input name='name' class="feedback__form__info feedback__form__name rfield" type="text" placeholder="Иванов Иван Николаевич"/>
             E-mail
@@ -10,7 +10,7 @@
             Сообщение
             <textarea name='message' class="feedback__form__text" placeholder="" ></textarea>
             <input type="submit" value="Отправить" class="feedback__btn send_btn disabled"/>
-            
+
             <input type='hidden' name='action' value='request' />
             <input type='hidden' name='next' value='{{ request_url }}' />
             {% csrf_token %}

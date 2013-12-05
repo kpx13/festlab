@@ -3,23 +3,20 @@
 {% block title %}Контакты{% endblock %}
 
 {% block content %}
-            <div class="page page_feedback">
+            <div class="page page_feedback" itemscope itemtype="http://schema.org/Organization">
                     <span class="page__heading">Контакты<span class="page__heading__in">А здесь вы можете ознакомится с нашим<br/>
 месторасположением и оставить заявку</span> </span>
-                <p class="page_feedback__text">Юр. адрес: 109542, г. Москва, Рязанский проспект, дом 86/1, стр. 3, помещение 419.</p>
-                <p class="page_feedback__text">Телефон: +7 (499) 918-61-49</p>
+                <span itemprop="name">Festlab</span>
+                <p class="page_feedback__text"  itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">Юр. адрес: <span itemprop="postalCode">109542</span>, г. <span itemprop="addressLocality">Москва</span>, <span itemprop="streetAddress">Рязанский проспект, дом 86/1, стр. 3, помещение 419</span>.</p>
+                <p class="page_feedback__text">Телефон: <span itemprop="telephone">+7 499 918-61-49</span></p>
                 <p class="page_feedback__text">Режим работы с 10 до 20 по будням</p>
-				
-				<div class="map">
+                <div class="map">
                     <script type="text/javascript" charset="utf-8" src="//api-maps.yandex.ru/services/constructor/1.0/js/?sid=2C92lxGkmlZB0DRtC910c-px34iH8Pg3&width=790&height=290"></script>
-				</div>
+                </div>
                 {% include 'request.html' %}
             </div>
-
         </div>
-
         {% include 'footer.html' %}
-
 {% endblock %}
 
 

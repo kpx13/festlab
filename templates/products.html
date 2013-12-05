@@ -7,14 +7,14 @@
             <div class="page_products">
                     <span class="page__heading">Продукты 1С<span class="page__heading__in">Мы реализуем самые сложные проекты <br/>
 и внедряем их</span> </span>
-                
-                
+
+
                 {% for p in products %}
                     <div class="product__preview">
                         <span class="product__title">{{ p.title }}</span>
 
                         <div class="product__in">
-                            <img class="product__img" src="/media/{{ p.image }}" alt=""/>
+                            <img class="product__img" src="/media/{{ p.image }}" alt=""  width="{{ p.image.width }}" height="{{ p.image.height }}"/>
                             <div class='free'>{{ p.description|safe }}</div>
                             <a href="/products/{{ p.slug }}/" class="product__btn product__btn-compare">Перейти к сравнению</a>
 
@@ -22,11 +22,11 @@
                         <br />
                         <br />
                     </div>
-                    
+
                 {% endfor %}
 
             </div>
 
             {% include 'footer.html' %}
-            
+
 {% endblock %}

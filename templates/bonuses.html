@@ -6,16 +6,16 @@
             <div class="page_bonus page">
                     <span class="page__heading">Акции и скидки<span class="page__heading__in">Мы рады дарить порарки своим клиентам <br/>
 и радовать приятными скидками</span> </span>
-                
+
                 {% for b in bonuses %}
                     <div class="page_bonus__i">
-                        <img src="/media/{{ b.image }}" class="bonus__img">
+                        <img src="/media/{{ b.image }}" class="bonus__img"  width="{{ b.image.width }}" height="{{ b.image.height }}">
                         <span class="page_bonus__title">{{ b.title }}</span>
                         <p class="page_bonus__text">{{ b.description }}</p>
                         <a href="/bonuses/{{ b.slug }}" class="product__btn product__btn-send">Подробнее</a>
                     </div>
                 {% endfor %}
-                               
+
 
             </div>
 
