@@ -10,40 +10,38 @@
 </head>
 <body>
     <div class="layout">
-    <div class="wrapper">
-        <div class="header">
-            <span class="phone"><span class="phone__in"> +7 (499) 918-61-49</span></span>
-                <a href="/" class="logo">
-                    <span class="logo_mark">F</span>ESTLAB
-                    <span class="logo__in">с нами вам удобнее</span>
-                </a>
-            <ul class="nav">
-                <a href='/products/'><li class="nav__i {% if 'products' in request_url %}active{% endif %}">Продукты 1С</li></a>
-                <a href='/services/'><li class="nav__i {% if 'services' in request_url %}active{% endif %}">Услуги</li></a>
-                <a href='/about/'><li class="nav__i {% if 'about' in request_url %}active{% endif %}">О компании</li></a>
-                <a href='/contacts/'><li class="nav__i {% if 'contacts' in request_url %}active{% endif %}">Контакты</li></a>
-            </ul>
-            <div class="form_feedback">
-                <span class="form_feedback__title">Оставьте контакты и мы вам позвоним</span>
-
-                <div class="contact-form">
-                    <form method='post' class='cf' id="contact_form">
-                        <input name='name' id="form_name" class="contact-form_text call__form__name cfield" type="text" value="" placeholder="Ваше имя..."/>
-                        <input name='phone' id="form_phone" class="contact-form_text call__form__phone cfield2" type="text" value="" placeholder="Телефон..."/>
-                        <input class="contact-form__btn send_btn disabled" type="submit" value=""/>
-                        <input type='hidden' name='action' value='call' />
-                        <input type='hidden' name='next' value='{{ request_url }}' />
-                        {% csrf_token %}
-                    </form>
+        <div class="wrapper">
+            <div class="header">
+                <span class="phone"><span class="phone__in"> +7 (499) 918-61-49</span></span>
+                    <a href="/" class="logo">
+                        <span class="logo_mark">F</span>ESTLAB
+                        <span class="logo__in">с нами вам удобнее</span>
+                    </a>
+                <ul class="nav">
+                    <a href='/products/'><li class="nav__i {% if 'products' in request_url %}active{% endif %}">Продукты 1С</li></a>
+                    <a href='/services/'><li class="nav__i {% if 'services' in request_url %}active{% endif %}">Услуги</li></a>
+                    <a href='/about/'><li class="nav__i {% if 'about' in request_url %}active{% endif %}">О компании</li></a>
+                    <a href='/contacts/'><li class="nav__i {% if 'contacts' in request_url %}active{% endif %}">Контакты</li></a>
+                </ul>
+                <div class="form_feedback">
+                    <span class="form_feedback__title">Оставьте контакты и мы вам позвоним</span>
+                    <div class="contact-form">
+                        <form method='post' class='cf' id="contact_form">
+                            <input name='name' id="form_name" class="contact-form_text call__form__name cfield" type="text" value="" placeholder="Ваше имя..."/>
+                            <input name='phone' id="form_phone" class="contact-form_text call__form__phone cfield2" type="text" value="" placeholder="Телефон..."/>
+                            <input class="contact-form__btn send_btn disabled" type="submit" value=""/>
+                            <input type='hidden' name='action' value='call' />
+                            <input type='hidden' name='next' value='{{ request_url }}' />
+                            {% csrf_token %}
+                        </form>
+                    </div>
                 </div>
             </div>
+            <div class="content">
+                {% block content %}
+                {% endblock %}
+            </div>
         </div>
-
-        <div class="content">
-            {% block content %}
-            {% endblock %}
-        </div>
-    </div>
     </div>
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script src="/static/js/script.js"></script>
