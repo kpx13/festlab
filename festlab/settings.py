@@ -92,7 +92,7 @@ INSTALLED_APPS = (
     'admin_tools',
     'admin_tools.theming',
     'admin_tools.menu',
-    'admin_tools.dashboard',    
+    'admin_tools.dashboard',
     'django.contrib.auth',
     'django.contrib.sites',
     'django.contrib.admin',
@@ -107,7 +107,7 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     'sorl.thumbnail',
     'livesettings',
-    
+
     'bonuses',
     'call_order',
     'pages',
@@ -167,7 +167,7 @@ EMAIL_HOST_PASSWORD = 'noreply13'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
-EMAIL_SEND_TO = 'anna@webgenesis.ru'
+EMAIL_SEND_TO = 'dima.mywork@yandex.ru'
 
 try:
     from dev import *
